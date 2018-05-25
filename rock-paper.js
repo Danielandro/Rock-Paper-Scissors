@@ -2,16 +2,17 @@ var options = ['rock', 'paper', 'scissors'];
 var playerWins = 0;
 var computerWins = 0;
 
+// pick random choice 
 function computerPlay(){
     var randomNum = Math.floor(Math.random() * 3);
     return options[randomNum];
 }
 
+// compare & find a winner
 function play(playerSelection, computerSelection){
-    // convert both selections to lowercase
-    playerSelection.toLowerCase();
-    // computerSelection.toLowerCase();
-
+    // convert player selection to lowercase
+    playerSelection = playerSelection.toLowerCase();
+   
     if(playerSelection === computerSelection){
         return 'It\'s a draw';
     } // player wins
@@ -38,19 +39,14 @@ function play(playerSelection, computerSelection){
         return `NO MATCHES FOUND --- ${playerSelection} ${computerSelection}`;
     }
 
-//  console.log(playerSelection, computerSelection);
 }
 
-// const playerSelection = 'rock'
-// const computerSelection = computerPlay()
-// console.log(play(playerSelection, computerSelection))
-
+// play five games and declare a winner
 function game(){       
     for(var i = 0; i < 5; i++){
-        const playerSelection = 'rock';
+        const playerSelection = prompt('Rock, Paper or Scissors???');
         var computerSelection = computerPlay();
-        console.log(play(playerSelection, computerSelection));
-        
+        console.log(play(playerSelection, computerSelection));        
     }
     
     if(playerWins > computerWins){
@@ -59,9 +55,7 @@ function game(){
         console.log('You Lost. Better Luck Next Time :-(');
     }else{
         console.log('All Tied.....');
-    }
-    
+    }    
 }
 
 game();
-// || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'
